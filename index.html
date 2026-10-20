@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b0b29">
+  <meta name="description" content="Watch the arrow of victory fly, Ravana's effigy burn, and a special Dussehra greeting appear. Tap to begin!">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🏹✨ A Dussehra surprise is waiting for you!">
+  <meta property="og:description" content="Release the arrow, watch Ravana Dahan, and open a beautiful Vijayadashami wish.">
+  <meta property="og:url" content="https://shwetadinkar.github.io/dussehra-greeting/">
+  <meta property="og:image" content="https://shwetadinkar.github.io/dussehra-greeting/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <title>Happy Dussehra | A Little Light, A Great Victory</title>
+  <style>
+    :root { color-scheme:dark; --light:#fff2d4; --gold:#ffd58c; --orange:#ffb15e; --muted:#d5b5c5; }
+    * { box-sizing:border-box }
+    body { margin:0; min-height:100svh; overflow-x:hidden; color:var(--light); font-family:Georgia,'Noto Serif Devanagari','Times New Roman',serif; background:radial-gradient(ellipse 90% 62% at 50% 17%,#6c3152 0%,#321734 44%,#160b25 100%); }
+    body::before {content:'';position:fixed;inset:0;pointer-events:none;opacity:.4;background-image:radial-gradient(#fbd5a4 1px,transparent 1px);background-size:54px 71px}
+    .wrap { width:min(100%,820px); min-height:100svh; margin:auto; display:flex; justify-content:center; align-items:center; flex-direction:column; padding:17px 16px 25px; position:relative }
+    .card { position:relative; width:100%; overflow:hidden; text-align:center; border-radius:24px; border:1px solid #f8c97a6b; background:linear-gradient(145deg,#63304bfa,#32182fdc 55%,#22132cf4); box-shadow:0 22px 72px #100817b8,inset 0 0 48px #fdaf4930; padding:18px 20px 28px }
+    .card::before,.card::after{content:'✦';position:absolute;top:16px;color:#ffdaa2a8;font-size:16px}.card::before{left:20px}.card::after{right:20px}
+    .overline { color:var(--orange); font:600 11px/1.6 system-ui,sans-serif; letter-spacing:3px; text-transform:uppercase; margin:7px 0 6px }
+    .headline { color:var(--gold);font-size:clamp(32px,5.8vw,52px);line-height:1.13;letter-spacing:-.6px;text-shadow:0 3px 22px #ffbc683b;margin:4px auto 7px;max-width:600px }
+    .description {margin:5px auto 5px; max-width:480px;color:#e9cbd4;font-size:clamp(13px,2vw,16px);line-height:1.5}
+    .divider {display:flex;align-items:center;justify-content:center;gap:12px;margin:6px auto 10px;color:#f1bd7a; font-size:14px}
+    .divider::before,.divider::after{content:'';width:min(24vw,110px);height:1px;background:linear-gradient(90deg,transparent,#b98464)}.divider::after{transform:rotate(180deg)}
+    .stage { width:100%; background:linear-gradient(#301f4c 0%,#65314c 55%,#c66548 94%,#e5a767 100%);overflow:hidden;border-radius:17px; border:1px solid #efb46b7f; position:relative;box-shadow:inset 0 0 20px #140924a5;isolation:isolate }
+    .stage svg{display:block;width:100%;height:auto}
+    .sky-star{animation:twinkle 3s ease-in-out infinite alternate}.sky-star:nth-child(3n){animation-delay:-1.4s}.sky-star:nth-child(5n){animation-delay:-.8s}
+    #flying-arrow{opacity:0;filter:drop-shadow(0 0 9px #fff3ae)}
+    #trail{stroke-dasharray:10 12;stroke:#ffe2aa;stroke-width:3;fill:none;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 5px #fff7d1)}
+    #ravan-effigy{transform-box:fill-box;transform-origin:50% 95%;transition:opacity 1.05s ease,transform 1.15s ease,filter 1.05s ease}
+    .burning #ravan-effigy{animation:shake .16s 8 alternate ease-in-out}.charring #ravan-effigy{filter:sepia(1) brightness(.68)!important} .burning #ravan-heads{animation:shake .12s 12 alternate ease-in-out}
+    .burning #ravan-effigy.vanish,.complete #ravan-effigy{opacity:0;transform:translateY(65px) rotate(-7deg) scale(.64);filter:sepia(1) brightness(.3) blur(3px)}
+    #flames{opacity:0;transition:opacity .5s ease;filter:drop-shadow(0 0 10px #ff852b)}
+    .burning #flames{opacity:1}.complete #flames{opacity:0} #ash{transition:opacity 1s} .complete #ash{opacity:1}
+    .flame-shape{transform-box:fill-box;transform-origin:50% 100%;animation:flame .68s ease-in-out infinite alternate;animation-delay:var(--flame-delay,0s)}
+    .flame-shape:nth-child(even){animation-delay:-.31s;animation-duration:.51s}
+    #impact{opacity:0;transform-box:fill-box;transform-origin:center}
+    .burning #impact{animation:impact .5s ease-out both}
+    .controls { margin:16px auto 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap }
+    button,.share{font:700 14px/1.2 system-ui,sans-serif;border-radius:999px;padding:14px 24px;min-height:47px;border:1px solid #ffcc878e;color:#fff3d9;background:#48243d;cursor:pointer;text-decoration:none;transition:transform .2s,filter .2s}
+    button:hover,.share:hover{transform:translateY(-2px);filter:brightness(1.1)}
+    button:focus-visible,.share:focus-visible{outline:3px solid white;outline-offset:3px}
+    .cta,.share{background:linear-gradient(110deg,#ffda93,#f2a855);color:#44202c;border:0;box-shadow:0 5px 20px #d0743852}
+    button[disabled]{opacity:.5;cursor:wait;transform:none}
+    .narration {height:29px;margin:12px 0 0; color:#fbd398;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:.5px}
+    #result{padding:7px 0 0;animation:rise .7s ease both}
+    #result[hidden],#start-area[hidden], [hidden] {display:none!important}
+    .win-mark{font-size:28px;margin:4px auto 2px;filter:drop-shadow(0 0 9px #e7a35d)}
+    .win-title{color:#ffdc99;text-shadow:0 0 21px #ffbd775f;font-size:clamp(34px,8vw,54px);line-height:1.1;margin:6px auto 7px}
+    .wish{font-size:clamp(16px,2.6vw,20px);line-height:1.66;max-width:570px;margin:8px auto 0;color:#ffedd9}
+    .hindi-title{font-size:clamp(24px,4.6vw,34px);margin:5px auto 7px;color:#ffe2a7}
+    .signoff{margin:12px auto 8px;color:#ffd4b1;font-size:14px}
+    .footer{color:#e2b4a3;text-align:center;margin:14px 0 0;font:11px/1.5 system-ui,sans-serif;letter-spacing:.4px}
+    #particles{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+    @keyframes flame{from{transform:scaleX(.78) scaleY(.85) rotate(-5deg)}to{transform:scaleX(1.17) scaleY(1.12) rotate(6deg)}}
+    @keyframes shake{to{transform:rotate(2deg)}}
+    @keyframes impact{0%{opacity:0;transform:scale(.2)}35%{opacity:1;transform:scale(1.15)}100%{opacity:0;transform:scale(2)}}
+    @keyframes twinkle{to{opacity:.23;transform:scale(.77)}}
+    @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    @media(max-width:550px){.wrap{padding:8px 9px 18px}.card{padding:17px 10px 18px;border-radius:18px}.overline{letter-spacing:2px}.headline{font-size:33px}.divider{margin:5px auto 8px}.narration{margin-top:9px}.controls{margin-top:13px}.description{font-size:13px}.wish{padding:0 6px}button,.share{padding:12px 17px}}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+<canvas id="particles" aria-hidden="true"></canvas>
+<main class="wrap">
+  <article class="card">
+    <p class="overline">✦ Vijayadashami • The victory of good ✦</p>
+    <h1 id="initial-title" class="headline">One arrow. One victory.<br>A thousand new hopes.</h1>
+    <p class="description" id="description">A little Dussehra surprise awaits you. Tap below to watch it unfold.</p>
+    <div class="divider" aria-hidden="true">✹ ❁ ✹</div>
+    <div class="stage" id="stage">
+      <svg id="scene" viewBox="0 0 900 490" role="img" aria-label="Festive illustration of Rama holding a bow facing a ten-headed Ravana effigy in a dusky temple courtyard">
+        <defs>
+          <radialGradient id="sunset" cx="65%" cy="73%" r="58%"><stop offset="0" stop-color="#faac64" stop-opacity=".83"/><stop offset=".55" stop-color="#c25964" stop-opacity=".42"/><stop offset="1" stop-color="#46284c" stop-opacity="0"/></radialGradient>
+          <linearGradient id="goldStroke" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffeaac"/><stop offset="1" stop-color="#c98642"/></linearGradient>
+          <linearGradient id="fireFill" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e65025"/><stop offset=".5" stop-color="#ffa13e"/><stop offset="1" stop-color="#fff6ae"/></linearGradient>
+          <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#253059"/><stop offset=".7" stop-color="#171a39"/><stop offset="1" stop-color="#11132b"/></linearGradient>
+          <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+        </defs>
+        <!-- night sky and floating lanterns -->
+        <rect width="900" height="490" fill="url(#sunset)"/>
+        <circle cx="705" cy="229" r="130" fill="#ffd8a0" opacity=".15" filter="url(#softGlow)"/>
+        <circle cx="705" cy="229" r="99" fill="#fff2b5" opacity=".12"/>
+        <circle class="sky-star" cx="77" cy="73" r="1.2" fill="#ffe8b1" opacity=".4"/>
+<circle class="sky-star" cx="214" cy="120" r="1.8" fill="#ffe8b1" opacity=".5"/>
+<circle class="sky-star" cx="351" cy="167" r="2.4" fill="#ffe8b1" opacity=".6"/>
+<circle class="sky-star" cx="488" cy="45" r="1.2" fill="#ffe8b1" opacity=".7"/>
+<circle class="sky-star" cx="625" cy="92" r="1.8" fill="#ffe8b1" opacity=".8"/>
+<circle class="sky-star" cx="762" cy="139" r="2.4" fill="#ffe8b1" opacity=".4"/>
+<circle class="sky-star" cx="19" cy="186" r="1.2" fill="#ffe8b1" opacity=".5"/>
+<circle class="sky-star" cx="156" cy="64" r="1.8" fill="#ffe8b1" opacity=".6"/>
+<circle class="sky-star" cx="293" cy="111" r="2.4" fill="#ffe8b1" opacity=".7"/>
+<circle class="sky-star" cx="430" cy="158" r="1.2" fill="#ffe8b1" opacity=".8"/>
+<circle class="sky-star" cx="567" cy="36" r="1.8" fill="#ffe8b1" opacity=".4"/>
+<circle class="sky-star" cx="704" cy="83" r="2.4" fill="#ffe8b1" opacity=".5"/>
+<circle class="sky-star" cx="841" cy="130" r="1.2" fill="#ffe8b1" opacity=".6"/>
+<circle class="sky-star" cx="98" cy="177" r="1.8" fill="#ffe8b1" opacity=".7"/>
+<circle class="sky-star" cx="235" cy="55" r="2.4" fill="#ffe8b1" opacity=".8"/>
+<circle class="sky-star" cx="372" cy="102" r="1.2" fill="#ffe8b1" opacity=".4"/>
+<circle class="sky-star" cx="509" cy="149" r="1.8" fill="#ffe8b1" opacity=".5"/>
+<circle class="sky-star" cx="646" cy="27" r="2.4" fill="#ffe8b1" opacity=".6"/>
+<circle class="sky-star" cx="783" cy="74" r="1.2" fill="#ffe8b1" opacity=".7"/>
+<circle class="sky-star" cx="40" cy="121" r="1.8" fill="#ffe8b1" opacity=".8"/>
+<circle class="sky-star" cx="177" cy="168" r="2.4" fill="#ffe8b1" opacity=".4"/>
+<circle class="sky-star" cx="314" cy="46" r="1.2" fill="#ffe8b1" opacity=".5"/>
+<circle class="sky-star" cx="451" cy="93" r="1.8" fill="#ffe8b1" opacity=".6"/>
+<circle class="sky-star" cx="588" cy="140" r="2.4" fill="#ffe8b1" opacity=".7"/>
+<circle class="sky-star" cx="725" cy="187" r="1.2" fill="#ffe8b1" opacity=".8"/>
+<circle class="sky-star" cx="862" cy="65" r="1.8" fill="#ffe8b1" opacity=".4"/>
+        <g opacity=".68" stroke="#ffdaa1" fill="none" stroke-width="2">
+          <path d="M0 17 Q210 68 450 28 Q674 -11 900 32"/>
+        </g>
+        <g transform="translate(15 23.1)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(48 23.9)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(81 25.4)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(114 27.7)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(147 30.5)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(180 33.7)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(213 37.2)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(246 40.8)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(279 44.2)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(312 47.3)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(345 50.0)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(378 52.1)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(411 53.4)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(444 54.0)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(477 53.7)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(510 52.7)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(543 50.8)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(576 48.4)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(609 45.4)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(642 42.0)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(675 38.5)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(708 35.0)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(741 31.6)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(774 28.6)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(807 26.2)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(840 24.3)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(873 23.3)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+<g transform="translate(906 23.0)"><path d="M0 0v14" stroke="#d4a466" stroke-width="2"/><circle cy="13" r="6" fill="#fdb769"/><circle cy="13" r="3" fill="#ffda8a"/></g>
+        <g opacity=".46" fill="#311e3e">
+          <path d="M0 383V307h49v-29h14v-30h13v-14h15v14h13v30h17v29h38v76Z"/>
+          <path d="M763 386v-83h33v-23h18v-32h21v32h19v23h46v83Z"/>
+          <path d="M344 383v-68h30v-13h12v-23h14v23h15v13h25v68Z"/>
+        </g>
+        <path d="M0 392Q180 357 367 390T900 387V490H0Z" fill="#382337"/>
+        <path d="M0 424Q220 395 450 417T900 420V490H0Z" fill="#26192d"/>
+        <path d="M15 427H885" stroke="#e89a64" stroke-width="2" opacity=".35"/>
+        <!-- Diya lights at both sides -->
+        <g fill="#ffca75"><ellipse cx="80" cy="417" rx="17" ry="6" fill="#e58148"/><path d="M80 416Q62 403 72 390Q76 384 80 374Q94 390 87 403Z"/><ellipse cx="837" cy="423" rx="16" ry="6" fill="#e58148"/><path d="M838 417Q824 403 830 391Q835 385 838 377Q848 394 842 408Z"/></g>
+<!-- Rama, facing right, with correct right-facing bow and drawn arrow -->
+        <g id="archer" aria-label="Lord Rama draws his bow toward Ravana">
+          <ellipse cx="199" cy="417" rx="93" ry="11" fill="#120f21" opacity=".52"/>
+          <!-- Widened archery stance, gold dhoti and blue sash -->
+          <path d="M180 278Q152 324 131 374L111 409Q132 422 150 407L204 338L235 408Q256 421 275 408L235 310L232 276Z" fill="#f2b660" stroke="#ffe3a1" stroke-width="3.5"/>
+          <path d="M179 284L158 375L194 346L205 320L227 391L241 407" stroke="#b97641" stroke-width="3.5" fill="none"/>
+          <path d="M154 407Q130 406 110 410M241 409Q262 406 278 410" stroke="#7c4c47" stroke-width="5" stroke-linecap="round"/>
+          <path d="M180 170Q155 189 159 232L164 299L231 301Q237 264 230 214Q223 183 211 169Z" fill="#1c3056" stroke="#ffd087" stroke-width="3.5"/>
+          <path d="M174 181Q191 216 224 286L231 296L217 301Q190 242 168 201Z" fill="#ecab60" stroke="#ffe0a0" stroke-width="2"/>
+          <path d="M172 172L224 281" stroke="#fbd08a" stroke-width="2.5" opacity=".55"/>
+          <!-- Back hair and recognizable crowned face profile -->
+          <path d="M178 112Q157 126 161 164L167 190L192 185L195 140Z" fill="#192746"/>
+          <path d="M169 105Q178 85 202 93Q226 105 218 136Q211 156 197 167Q181 164 175 148Z" fill="#d3a477" stroke="#ffdfad" stroke-width="2.6"/>
+          <path d="M171 112Q169 94 184 90Q198 87 217 103L219 114Q199 102 171 112Z" fill="#172846"/>
+          <path d="M171 106L181 92L192 99L202 83L215 103L223 111L218 118L170 116Z" fill="#f5c46b" stroke="#ffe4a1" stroke-width="2.3"/>
+          <path d="M203 89L205 101L198 102Z" fill="#e97850"/>
+          <path d="M203 129L211 128" stroke="#4b2c2b" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M210 144Q205 149 201 146" stroke="#7f5041" stroke-width="2" fill="none"/>
+          <!-- Quiver with visible arrows -->
+          <path d="M159 186L149 136L169 131L181 182Z" fill="#a8583b" stroke="#ffd18c" stroke-width="2.5"/>
+          <path d="M152 146L144 108M158 143L156 103M166 143L171 109" stroke="#ffdb9a" stroke-width="3"/>
+          <path d="M140 108L148 110L144 102Z M152 103L160 107L156 99Z M167 108L173 111L172 101Z" fill="#ffc477"/>
+          <!-- Front left arm holds the bow, reaching to the RIGHT -->
+          <path d="M215 191Q242 206 260 226L291 241L304 245L302 258L281 256Q247 247 217 221Z" fill="#d3a477" stroke="#ffd99b" stroke-width="3"/>
+          <path d="M281 235L290 257" stroke="#ffe0a8" stroke-width="8"/>
+          <!-- Right draw arm bends backward toward the cheek -->
+          <path d="M168 205Q139 225 150 254Q161 270 188 256L195 242Q171 249 169 242Q166 232 184 222" fill="#c99a72" stroke="#ffd89e" stroke-width="3.5"/>
+          <circle cx="185" cy="245" r="8" fill="#e2b687" stroke="#ffda9e" stroke-width="2"/>
+          <!-- Correctly oriented recurved bow: bow stave in FRONT of archer -->
+          <path d="M299 100Q352 161 335 242Q354 326 300 387" fill="none" stroke="#bd793f" stroke-width="14" stroke-linecap="round"/>
+          <path d="M299 100Q352 161 335 242Q354 326 300 387" fill="none" stroke="#f9d38c" stroke-width="10" stroke-linecap="round"/>
+          <path d="M298 100Q286 92 295 86M300 387Q290 397 296 402" fill="none" stroke="#ffe19d" stroke-width="5" stroke-linecap="round"/>
+          <!-- Drawn bowstring has a clearly visible rearward nocking point -->
+          <path id="drawn-string" d="M299 100L185 245L300 387" fill="none" stroke="#ffecc0" stroke-width="2.8"/>
+          <path id="released-string" d="M299 100L318 245L300 387" fill="none" stroke="#ffecc0" stroke-width="2.6" opacity="0"/>
+          <g id="nocked-arrow"><path d="M183 245L364 245" stroke="#f9dfad" stroke-width="4" stroke-linecap="round"/><path d="M353 235L377 245L353 255Z" fill="#fff2ba"/><path d="M187 245L165 237L175 245L165 253Z" fill="#ffc176"/></g>
+        </g>
+<!-- Ten complete, anatomically readable faces attached to a single Ravana effigy -->
+        <g id="ravan-effigy" aria-label="Ten-headed Ravana effigy" data-head-count="10">
+          <ellipse cx="700" cy="414" rx="128" ry="12" fill="#130f21" opacity=".54"/>
+          <!-- Effigy legs, waistband, broad maroon armor -->
+          <path d="M648 318L621 406L665 408L696 351L727 407H777L742 318Z" fill="#713650" stroke="#ffd28b" stroke-width="4"/>
+          <path d="M622 405L670 405M727 406L777 406" stroke="#ffdf98" stroke-width="5"/>
+          <path d="M626 250Q640 224 675 222L722 222Q761 222 779 250L758 323Q706 340 636 323Z" fill="#832f4c" stroke="#ffda91" stroke-width="5"/>
+          <path d="M646 258L603 274L579 229M768 260L801 272L829 230" fill="none" stroke="#6f2f4b" stroke-width="17" stroke-linecap="round"/>
+          <path d="M646 258L603 274L579 229M768 260L801 272L829 230" fill="none" stroke="#ffd48c" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M673 241L707 230L741 241L737 295L677 295Z" fill="#522743" stroke="#ffd18d" stroke-width="3.5"/>
+          <circle cx="707" cy="267" r="17" fill="#ffd086"/><path d="M707 251L722 268L707 284L692 268Z" fill="#873c50"/>
+          <path d="M632 317Q699 327 763 317" stroke="#f7c778" stroke-width="9"/>
+          <!-- Neck braces, rising from shoulders and physically connecting every head -->
+          <path d="M661 228Q621 207 535 209M662 225Q625 211 571 205M675 225Q628 215 607 205M682 222Q657 207 643 198M688 224Q676 208 679 201M716 221L715 191M724 222Q741 203 751 197M737 223Q769 206 787 200M742 225Q797 204 823 204M748 225Q809 204 859 207" fill="none" stroke="#dfa76a" stroke-width="12" stroke-linecap="round"/>
+          <path d="M661 228Q621 207 535 209M662 225Q625 211 571 205M675 225Q628 215 607 205M682 222Q657 207 643 198M688 224Q676 208 679 201M716 221L715 191M724 222Q741 203 751 197M737 223Q769 206 787 200M742 225Q797 204 823 204M748 225Q809 204 859 207" fill="none" stroke="#f9d78b" stroke-width="3" stroke-linecap="round"/>
+          <path d="M642 229Q699 244 763 226L749 243Q704 258 653 242Z" fill="#dc9a58" stroke="#ffe1a0" stroke-width="3"/>
+          <g id="ravan-heads"><g class="ravan-head" data-head="1" transform="translate(535 197) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="2" transform="translate(571 193) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="3" transform="translate(607 189) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="4" transform="translate(643 185) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="5" transform="translate(679 181) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="6" transform="translate(715 169) scale(1.15 1.22)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="7" transform="translate(751 181) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="8" transform="translate(787 185) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="9" transform="translate(823 189) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g>
+<g class="ravan-head" data-head="10" transform="translate(859 193) scale(0.94 1.0)">
+       <!-- A complete face, turban-crown, eyes, nose and mustache -->
+       <path d="M-18 -18L-16 -31L-7 -27L0 -46L8 -27L17 -31L19 -18Z" fill="#e9b45d" stroke="#ffe29b" stroke-width="2" stroke-linejoin="round"/>
+       <path d="M-6 -30L0 -39L6 -30Z" fill="#cb6749"/><path d="M-19 -19H19V-12H-19Z" fill="#ffdb83"/>
+       <path d="M-19 -14Q-21 11 -13 24Q0 40 14 24Q23 8 18 -14Z" fill="#c48b68" stroke="#ffd18a" stroke-width="2.2"/>
+       <path d="M-17 -13Q-9 -26 0 -23Q13 -26 18 -14" fill="#251727"/>
+       <path d="M-15 -1L-5 1M5 1L15 -1" stroke="#2f1b2c" stroke-width="3.4" stroke-linecap="round"/>
+       <circle cx="-8" cy="5" r="1.8" fill="#fff1c5"/><circle cx="8" cy="5" r="1.8" fill="#fff1c5"/>
+       <path d="M0 6L-2 13H3" stroke="#79513f" stroke-width="1.8" fill="none"/>
+       <path d="M-14 16Q-9 10 -1 18Q0 21 1 18Q9 10 14 16Q10 28 1 22Q-8 28 -14 16Z" fill="#2f1a2d"/>
+       <path d="M-5 27Q0 31 5 27" fill="none" stroke="#753a3e" stroke-width="1.7"/>
+     </g></g>
+        </g>
+        <path id="trail" d="M373 245 Q508 202 703 267"/>
+        <g id="flying-arrow" transform="translate(293 281)">
+          <path d="M-64 0L38 0" stroke="#ffe3a8" stroke-width="5" stroke-linecap="round"/>
+          <path d="M24 -9L49 0L24 9Z" fill="#fff1c1"/>
+          <path d="M-61 0L-82 -10L-69 0L-82 10Z" fill="#fbb57c"/>
+          <circle r="7" fill="#fff8c6" filter="url(#softGlow)"/>
+        </g>
+        <g id="impact"><circle cx="703" cy="267" r="24" fill="#fffad3" filter="url(#softGlow)"/><circle cx="703" cy="267" r="10" fill="#fff7c6"/></g>
+<g id="flames" aria-hidden="true">
+  <ellipse cx="701" cy="409" rx="109" ry="17" fill="#ff6b28" opacity=".7" filter="url(#softGlow)"/>
+  <ellipse cx="701" cy="408" rx="97" ry="9" fill="#ffbc60" opacity=".65"/>
+<g class="fire-column" style="--flame-delay:-0.0s"><path class="flame-shape" d="M564 413Q556 370 581 341Q575 310 598 290Q599 327 614 346Q641 361 626 413Z" fill="#ff6029" opacity=".92"/>
+      <path class="flame-shape" d="M583 413Q570 388 596 342Q611 379 609 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.09s"><path class="flame-shape" d="M592 413Q584 370 611 310Q605 266 628 238Q629 291 646 317Q673 361 658 413Z" fill="#ff9a34" opacity=".92"/>
+      <path class="flame-shape" d="M613 413Q600 388 626 312Q641 379 639 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.18s"><path class="flame-shape" d="M623 413Q615 370 641 279Q635 222 658 185Q659 254 675 288Q702 361 687 413Z" fill="#ffb943" opacity=".92"/>
+      <path class="flame-shape" d="M643 413Q630 388 656 281Q671 379 669 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.27s"><path class="flame-shape" d="M649 413Q641 370 673 260Q667 195 690 153Q691 231 711 270Q740 361 725 413Z" fill="#ff6029" opacity=".92"/>
+      <path class="flame-shape" d="M675 413Q662 388 688 263Q703 379 701 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.36s"><path class="flame-shape" d="M687 413Q679 370 708 269Q702 208 725 168Q726 242 744 279Q772 361 757 413Z" fill="#ff9a34" opacity=".92"/>
+      <path class="flame-shape" d="M710 413Q697 388 723 271Q738 379 736 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.44999999999999996s"><path class="flame-shape" d="M723 413Q715 370 743 295Q737 245 760 213Q761 273 778 303Q806 361 791 413Z" fill="#ffb943" opacity=".92"/>
+      <path class="flame-shape" d="M745 413Q732 388 758 298Q773 379 771 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.54s"><path class="flame-shape" d="M750 413Q742 370 771 316Q765 275 788 248Q789 298 807 323Q835 361 820 413Z" fill="#ff6029" opacity=".92"/>
+      <path class="flame-shape" d="M773 413Q760 388 786 318Q801 379 799 413Z" fill="#ffe48f" opacity=".78"/></g>
+<g class="fire-column" style="--flame-delay:-0.63s"><path class="flame-shape" d="M795 413Q787 370 807 341Q801 310 824 290Q825 327 837 346Q862 361 847 413Z" fill="#ff9a34" opacity=".92"/>
+      <path class="flame-shape" d="M809 413Q796 388 822 342Q837 379 835 413Z" fill="#ffe48f" opacity=".78"/></g>
+</g><g id="ash" opacity="0"><path d="M626 407Q700 386 776 407Q713 421 626 407Z" fill="#6f3b39"/><path d="M639 409L678 392L704 405L736 396L766 407" fill="none" stroke="#d58056" stroke-width="2"/></g>
+      </svg>
+    </div>
+    <p id="narration" class="narration" aria-live="polite">🏹 The arrow of courage is ready.</p>
+    <div id="start-area" class="controls">
+      <button id="start" class="cta" type="button">🏹 Release the arrow</button>
+    </div>
+    <section id="result" hidden aria-labelledby="win-heading">
+      <div class="win-mark" aria-hidden="true">🪔 ✨ 🏹 ✨ 🪔</div>
+      <h2 id="win-heading" class="win-title" tabindex="-1">Happy Dussehra!</h2>
+      <div id="english" lang="en"><p class="wish">May courage rise above fear, kindness outshine anger, and hope light every new beginning. May goodness always win. Wishing you and your family a joyful and beautiful Vijayadashami!</p></div>
+      <div id="hindi" lang="hi" hidden><p class="wish">असत्य पर सत्य की, अन्याय पर न्याय की और अंधकार पर प्रकाश की विजय हो। आपके जीवन में सुख, शांति और नई उम्मीदें आएँ। आपको और आपके परिवार को दशहरे की हार्दिक शुभकामनाएँ!</p></div>
+      <p class="signoff">With warm wishes 💛</p>
+      <div class="controls">
+        <button id="language" type="button">हिन्दी में पढ़ें</button>
+        <a id="share" class="share" target="_blank" rel="noopener noreferrer" href="https://wa.me/">↗ Share on WhatsApp</a>
+        <button id="replay" type="button">↻ Watch again</button>
+      </div>
+    </section>
+  </article>
+  <p class="footer">May truth, kindness and light always triumph. ✨</p>
+</main>
+<script>
+(()=>{'use strict';
+  const byId=id=>document.getElementById(id);
+  const scene=byId('scene'),stage=byId('stage'),start=byId('start'),result=byId('result');
+  const drawn=byId('drawn-string'),released=byId('released-string'),nocked=byId('nocked-arrow'),ash=byId('ash');
+  const intro=byId('start-area'),title=byId('initial-title'),desc=byId('description');
+  const narration=byId('narration'),ravan=byId('ravan-effigy'),arrow=byId('flying-arrow'),trail=byId('trail');
+  const english=byId('english'),hindi=byId('hindi'),lang=byId('language');
+  const canvas=byId('particles'),ctx=canvas.getContext('2d');
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const track=byId('trail');let frame=0,timers=[],playing=false,particles=[],particleFrame=0;
+  function schedule(fn,ms){const id=setTimeout(fn,ms);timers.push(id);}
+  function reset(){english.hidden=false;hindi.hidden=true;lang.textContent='हिन्दी में पढ़ें';byId('win-heading').textContent='Happy Dussehra!';cancelAnimationFrame(frame);cancelAnimationFrame(particleFrame);for(const id of timers)clearTimeout(id);timers=[];particles=[];if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);stage.classList.remove('burning','complete','charring');ravan.classList.remove('vanish');drawn.style.opacity='1';released.style.opacity='0';nocked.style.opacity='1';ash.style.opacity='0';arrow.style.opacity='0';trail.style.opacity='0';result.hidden=true;intro.hidden=false;title.hidden=false;desc.hidden=false;narration.textContent='🏹 The arrow of courage is ready.';start.disabled=false;playing=false;}
+  function resizeCanvas(){if(!ctx)return;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function emit(kind,n){if(reduceMotion||!ctx)return;resizeCanvas();const rect=scene.getBoundingClientRect(),ox=rect.left+rect.width*0.75,oy=rect.top+rect.height*.55;const palette=kind==='embers'?['#ffb056','#ff742f','#ffe596','#ffd08b']:['#ffd98d','#ffac5a','#fff3ca','#ee7391','#d1b5e0'];for(let i=0;i<n;i++){particles.push({x:kind==='embers'?ox:innerWidth/2+(Math.random()-.5)*180,y:kind==='embers'?oy:innerHeight*.33,vx:(Math.random()-.5)*(kind==='embers'?5:12),vy:(kind==='embers'?-2:-7)-Math.random()*5,size:2+Math.random()*5,life:kind==='embers'?40+Math.random()*40:60+Math.random()*65,color:palette[i%palette.length],grav:kind==='embers'?-.008:.12,rot:Math.random()*6,spin:(Math.random()-.5)*.22});}if(!particleFrame)drawParticles()}
+  function drawParticles(){if(!ctx)return;ctx.clearRect(0,0,innerWidth,innerHeight);particles=particles.filter(p=>p.life-->0);for(const p of particles){p.x+=p.vx;p.y+=p.vy;p.vy+=p.grav;p.rot+=p.spin;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.globalAlpha=Math.min(1,p.life/24);ctx.fillStyle=p.color;ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*.65);ctx.restore();}particleFrame=particles.length?requestAnimationFrame(drawParticles):0}
+  function finish(){stage.classList.remove('burning');stage.classList.add('complete');ash.style.opacity='1';narration.textContent='✨ Good triumphs over evil. Always.';result.hidden=false;title.hidden=true;desc.hidden=true;intro.hidden=true;playing=false;emit('confetti',120);byId('win-heading').focus?.({preventScroll:true});schedule(()=>result.scrollIntoView({behavior:reduceMotion?'instant':'smooth',block:'nearest'}),100)}
+  function burn(){arrow.style.opacity='0';trail.style.opacity='0';stage.classList.add('burning');narration.textContent='🔥 Ravana Dahan — the victory of good over evil!';emit('embers',90);schedule(()=>stage.classList.add('charring'),reduceMotion?20:750);schedule(()=>ravan.classList.add('vanish'),reduceMotion?35:1850);schedule(finish,reduceMotion?140:2950)}
+  function animateShot(){const total=track.getTotalLength(),duration=reduceMotion?80:1450,then=performance.now();drawn.style.opacity='0';released.style.opacity='1';nocked.style.opacity='0';arrow.style.opacity='1';trail.style.opacity='.54';narration.textContent='✨ Courage takes flight...';const animate=(now)=>{const t=Math.min(1,(now-then)/duration),ease=1-Math.pow(1-t,2),pt=track.getPointAtLength(total*ease),pn=track.getPointAtLength(Math.min(total,total*ease+1));const deg=Math.atan2(pn.y-pt.y,pn.x-pt.x)*180/Math.PI;arrow.setAttribute('transform',`translate(${pt.x} ${pt.y}) rotate(${deg})`);if(t<1)frame=requestAnimationFrame(animate);else burn()};frame=requestAnimationFrame(animate)}
+  function begin(){if(playing)return;reset();playing=true;intro.hidden=true;start.disabled=true;animateShot()}
+  start.addEventListener('click',begin);byId('replay').addEventListener('click',()=>{reset();start.focus({preventScroll:true})});
+  lang.addEventListener('click',()=>{const showHindi=hindi.hidden;hindi.hidden=!showHindi;english.hidden=showHindi;lang.textContent=showHindi?'Read in English':'हिन्दी में पढ़ें';byId('win-heading').textContent=showHindi?'शुभ दशहरा!':'Happy Dussehra!'});
+  const published=location.protocol==='https:'||location.protocol==='http:'?location.href.split(/[?#]/)[0]:'';
+  const message='🏹🪔 Happy Dussehra! Watch Rama’s arrow fly and Ravana Dahan light up the sky. ✨'+(published?'\n\nOpen your festive greeting: '+published:'');
+  byId('share').href='https://wa.me/?text='+encodeURIComponent(message);
+  window.addEventListener('pagehide',()=>{cancelAnimationFrame(frame);cancelAnimationFrame(particleFrame);timers.forEach(clearTimeout)});
+})();
+</script>
+</body>
+</html>
